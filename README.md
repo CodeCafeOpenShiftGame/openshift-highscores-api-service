@@ -43,7 +43,7 @@ Run the api service in dev mode that enables live coding using:
     >`curl $HS_URL && echo`
 
 4) This service won't function until it can store its data into a MongoDB. We can easily deploy one on OpenShift and have OpenShift provide service discovery. And then we configure this app's deployment with the user/password details for connecting to the DB.
-    > `oc new-app -e MONGODB_USER=thisisauser -e MONGODB_PASSWORD=thisis4password -e MONGODB_DATABASE=highscores -e MONGODB_ADMIN_PASSWORD=thisis4password mongodb:latest`
+    > `oc new-app -e MONGODB_USER=thisisauser -e MONGODB_PASSWORD=thisis4password -e MONGODB_DATABASE=highscores -e MONGODB_ADMIN_PASSWORD=thisis4password mongo:latest`
     >
     > `oc set env dc/highscores-api-service QUARKUS_MONGODB_CONNECTION_STRING=mongodb://thisisauser:thisis4password@mongodb:27017/highscores`
 
@@ -100,7 +100,7 @@ http -a dudash:123456 POST http://localhost:5000/scores score=1000 name=JAS chec
     >`curl $HS_URL && echo`
 
 3) This service won't function until it can store its data into a MongoDB. We can easily deploy one on OpenShift and have OpenShift provide service discovery. And then we configure this app's deployment with the user/password details for connecting to the DB.
-    > `oc new-app -e MONGODB_USER=thisisauser -e MONGODB_PASSWORD=thisis4password -e MONGODB_DATABASE=highscores -e MONGODB_ADMIN_PASSWORD=thisis4password mongodb:latest`
+    > `oc new-app -e MONGODB_USER=thisisauser -e MONGODB_PASSWORD=thisis4password -e MONGODB_DATABASE=highscores -e MONGODB_ADMIN_PASSWORD=thisis4password mongo:latest`
     >
     > `oc set env deployment/highscores-api-service QUARKUS_MONGODB_CONNECTION_STRING=mongodb://thisisauser:thisis4password@mongodb:27017/highscores`
 
